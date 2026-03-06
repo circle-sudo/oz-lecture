@@ -69,11 +69,14 @@ section {
     }
     aside {
         margin: 1.5rem;
+        width: 25vw;
+        padding: 0 0 0 2vw;
     }
 }
 @media screen and (min-width: 1024px) {
     body {
-        max-width: 80vw
+        margin:0 auto;
+        max-width: 80vw;
     }
     #posts {
         display: grid;
