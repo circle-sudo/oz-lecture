@@ -1,35 +1,41 @@
 const max_time = 10;
 const min_time = 1;
+
 let timerCount;
 var timerMessage = "";
 
+// DOM 선택
 const timerInput = document.querySelector("#timerInput");
-const srartTimer = document.querySelector("startTimer");
-const timerDisplay = document.querySelector("timerDisplay");
+const startTimer = document.querySelector("#startTimer");
+const timerDisplay = document.querySelector("#timerDisplay");
 
-button.addEventListener("click", function () {
+// 버튼 클릭 이벤트
+startTimer.addEventListener("click", function () {
 
-    const seconds = Number(input.value);
+    const seconds = Number(timerInput.value);
 
-    if (!isNaN(seconds) && seconds >= 1 && seconds <= 10) {
+    // 유효성 검사
+    if (!isNaN(seconds) && seconds >= min_time && seconds <= max_time) {
 
         let count = seconds;
 
-        display.textContent = `타이머: ${count}초`;
+        timerDisplay.textContent = `타이머: ${count}초`;
 
         const timer = setInterval(function () {
 
             count--;
 
             if (count > 0) {
-                display.textContent = `타이머: ${count}초`;
+                timerDisplay.textContent = `타이머: ${count}초`;
             } else {
                 clearInterval(timer);
-                display.textContent = "타이머 종료!";
+                timerDisplay.textContent = "타이머 종료!";
             }
 
         }, 1000);
 
+    } else {
+        timerDisplay.textContent = "유효한 숫자(1-10)를 입력하세요!";
     }
 
 });
